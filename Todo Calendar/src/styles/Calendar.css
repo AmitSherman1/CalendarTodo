@@ -1,0 +1,332 @@
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; 
+}
+
+.calendar-container {
+  width: 800px;
+  max-width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.task-button {
+  position: fixed;
+  top: 96px; 
+  right: 30px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+}
+
+.task-button:hover {
+  background-color: #0056b3;
+}
+
+.calendar-header-buttons button {
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.header-title {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-header button {
+  padding: 30px 15px;
+  font-size: 1.2rem;
+}
+
+.calendar-header-buttons button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+.week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.week-day {
+  padding: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 1px;
+  margin-right: 2px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  min-height: 420px;
+}
+
+.day, .empty-cell {
+  aspect-ratio: 1/1;
+  background: #f3f3f3;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.day:hover {
+  background: #d3d3d3;
+}
+
+.task-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 350px;
+  background: white;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  direction: rtl;
+  text-align: right;
+}
+
+.task-panel .header-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.task-dashboard {
+  background: #f4f4f4;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  height: 300px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  direction: rtl;
+  z-index: 10;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.task-panel h3 {
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #333;
+}
+
+.task-panel input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.task-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add {
+  font-weight: bold;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  border: none;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.add:hover {
+  background-color: #0056b3;
+}
+
+.task-scrollable {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-inline-end: 5px;
+  margin-top: 10px;
+}
+
+.task-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+.task-scrollable::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.task-scrollable::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.task-panel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-panel li {
+  background: #f3f3f3;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.task-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  direction: rtl;
+  width: 100%;
+}
+
+.task-row span,
+.task-row input[type="text"] {
+  flex-grow: 1;
+  word-break: break-word;
+  text-align: right;
+  color: #333;
+}
+
+.task-row input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+}
+
+.task-edit-input {
+  flex-grow: 1;
+  padding: 8px 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.save,
+.edit,
+.delete {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save {
+  background-color: #57da75; 
+  color: white;
+}
+
+.save:hover {
+  background-color: #218838;
+}
+
+.edit {
+  background-color: #f7e19f;
+  color: black;
+}
+
+.edit:hover {
+  background-color: #e0a800;
+}
+
+.delete {
+  background-color: #fc6070; 
+  color: white;
+}
+
+.delete:hover {
+  background-color: #c82333;
+}
+
+.task-completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.close-panel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.holiday-name {
+  font-size: 0.75rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #340788;
+}

@@ -1,0 +1,115 @@
+.dashboard {
+  background: #f4f4f4;
+  padding: 16px;
+  border-radius: 10px;
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  width: 250px;
+  height: 250px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  direction: rtl;
+  z-index: 10;
+}
+
+.dashboard-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.dashboard-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 350px;
+  background: white;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  direction: rtl;
+  text-align: right;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dashboard h3 {
+  display: flex;
+  justify-content: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.dashboard p {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #333;
+}
+
+.range-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 3px;
+  margin-bottom: 15px;
+}
+
+.range-buttons button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.range-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.progress-bar-fill.green {
+  background-color: #4caf50;
+}
+
+.progress-bar-fill.orange {
+  background-color: #ff9800;
+}
+
+.progress-bar-fill.red {
+  background-color: #f44336;
+}
